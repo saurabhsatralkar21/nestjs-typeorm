@@ -13,7 +13,7 @@ import { UsersModule } from './users/users.module';
     password: 'postgres',
     database: 'postgres',
     entities: ['dist/**/*.entity.js'],
-    synchronize: true,
+    // synchronize: true,
   }), UsersModule],
   controllers: [AppController],
   providers: [AppService],

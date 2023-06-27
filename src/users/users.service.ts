@@ -24,11 +24,16 @@ export class UsersService {
 
   async update(id: number, updateUserDto: UpdateUserDto) {
     const user = await this.findOne(id)
+    // Use 'save' instead of 'update' as 'save' tells which data was saved
+    // while the 'update' tells generic whether the data was saved
     return this.usersRepository.save({...user, ...updateUserDto});
   }
 
   async remove(id: number) {
     const user = await this.findOne(id)
-    return this.usersRepository.remove(user);
+
+    // user 'remove' instead of 'delete' as 'remove' tells which data was deleted while
+    // 'delete' tells generic that a data was deleted
+    return this.usersRepository.remove(user); 
   }
 }
