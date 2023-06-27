@@ -8,12 +8,14 @@ import { User } from './entities/user.entity';
 @Injectable()
 export class UsersService {
   constructor(@InjectRepository(User) private usersRepository: Repository<User>) {}
+
   create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
+    const newUser = this.usersRepository.create(createUserDto);
+    return this.usersRepository.save(newUser);
   }
 
   findAll() {
-    return `This action returns all users`;
+    return this.usersRepository.find(); // Select * FROM user
   }
 
   findOne(id: number) {
