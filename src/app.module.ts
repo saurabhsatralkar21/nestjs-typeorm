@@ -3,11 +3,11 @@ import { AppController } from './app.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
-import { DataSourceOptions } from 'typeorm';
+import { dataSourceOptions } from '../dist/db/data-source';
 
 @Module({
   imports: [TypeOrmModule.forRoot(
-    DataSourceOptions 
+    dataSourceOptions
   ), UsersModule],
   controllers: [AppController],
   providers: [AppService],
